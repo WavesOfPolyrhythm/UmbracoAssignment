@@ -1,0 +1,54 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var contactAddress = siteSettings?.ContactAddress ?? "No address";
+}
+
+<div class="bg-[#4F5955]">
+    <div class="max-w-7xl mx-auto px-4 h-10 flex items-center justify-between">
+        <p class="text-xs text-white/90 truncate">
+            @contactAddress
+        </p>
+
+        <div class="flex">
+            @if (siteSettings?.PlatformList != null)
+            {
+                foreach (var item in siteSettings.PlatformList)
+                {
+                    if (item.Content is SocialMediaItems mediaItem)
+                    {
+                        var url = mediaItem.PlatformAccountUrl;
+                        var name = mediaItem.PlatformName?.ToLower();
+
+                        <a href="@url"
+                           target="_blank"
+                           class="flex items-center justify-center w-10 h-10 text-white/90
+                                                          border-l border-white/20 last:border-r
+                                                          hover:bg-[#2E3734] transition-colors"
+                           aria-label="@name">
+                            @switch (name)
+                            {
+                                case "facebook":
+                                    <i class="fa-brands fa-facebook"></i>
+                                    break;
+                                case "twitter":
+                                case "x":
+                                    <i class="fa-brands fa-x-twitter"></i>
+                                    break;
+                                case "linkedin":
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                    break;
+                                default:
+                                    <i class="fa-solid fa-link"></i>
+                                    break;
+                            }
+                        </a>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
