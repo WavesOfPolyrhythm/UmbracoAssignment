@@ -1,0 +1,37 @@
+﻿@import "tailwindcss";
+
+@theme {
+    --font-oswald: "Oswald", sans-serif;
+
+    --color-neutral: #ffffff;
+    --color-white: #F2EDDC;
+    --color-white-100: #F7F7F7;
+    --color-dark: #0E0E0E;
+    --color-primary: #4F5955;
+    --color-main-light: #606966;
+    --color-accent: #F2EDDC;
+    --color-secondary: #D9C3A9;
+    --color-gray-400: #4B5264;
+    --color-body-text: #535656;
+    --color-body-text-100: #999999;
+    --color-notel: #9C9EA6;
+    --color-border-gray: #EAEAEA;
+    --color-border-400: #C7C8C9;
+    --color-heading: #2E3734;
+
+    --text-rte-xxl: 5rem;
+    --text-rte-xl: 4.375rem; /* ≈70px */
+    --text-rte-lg: 2.5rem; /* ≈40px */
+    --text-rte-md: 1.25rem; /* ≈20px */
+    --text-rte-sm: 1rem; /* ≈16px */
+    --text-rte-xs: 0.875rem; /* ≈14px */
+}
+
+body {
+     @apply font-oswald;
+}
+
+
+.rte {
+    @apply text-[2.5rem] text-primary font-bold;
+}
