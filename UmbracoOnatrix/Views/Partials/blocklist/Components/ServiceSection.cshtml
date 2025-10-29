@@ -1,0 +1,27 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.ServiceSection)Model.Content;
+
+    var settings = Model.Settings as ContentModels.ServiceSettings;
+}
+
+<section class="py-16">
+    <div class="container mx-auto px-4">
+
+        <div class="text-center space-y-3">
+            @if (settings!.ShowServiceLabel)
+            {
+                <h2 class="font-semibold text-[#4F5955]">
+                    @content.ServiceLabel
+                </h2>
+            }
+            <div class="">
+                @Html.Raw(content.ServiceTitle)
+            </div>
+        </div>
+
+        <div class="">
+        </div>
+    </div>
+</section>
