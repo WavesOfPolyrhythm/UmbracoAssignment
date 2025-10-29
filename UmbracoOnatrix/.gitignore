@@ -480,3 +480,6 @@ umbraco-package-schema.json
 
 # Media files
 /wwwroot/media/
+
+# Tailwind build output
+/wwwroot/css/output.css
