@@ -31,7 +31,15 @@ body {
      @apply font-oswald;
 }
 
+@layer components {
+    .page-header {
+        @apply bg-[var(--color-white-100)] bg-no-repeat py-16;
+        background-image: url('/images/Rectangle-left.svg'), url('/images/Rectangle-right.svg');
+        background-position: left bottom, top right;
+    }
 
-.rte {
-    @apply text-[2.5rem] text-primary font-bold;
+    .rte {
+        @apply text-[2.5rem] text-primary font-bold;
+    }
 }
+
