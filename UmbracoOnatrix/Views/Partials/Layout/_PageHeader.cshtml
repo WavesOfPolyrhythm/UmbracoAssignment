@@ -1,4 +1,14 @@
 ﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<IPageHeader>
+@using Umbraco.Cms.Core.PublishedCache
+@using Umbraco.Cms.Core.Routing
+@using Umbraco.Cms.Core.Services.Navigation
+@inject IPublishedContentCache PublishedContentCache
+@inject IDocumentNavigationQueryService DocumentNavigationQueryService
+@inject IPublishedUrlProvider PublishedUrlProvider
+
+@{
+    var selection = Model.Ancestors().ToArray();
+}
 
 <section class="page-header">
 
@@ -7,6 +17,22 @@
             @Model.PageTitle
         </h1>
 
-        <div></div>
+        <div class="flex items-center justify-center gap-2">
+            @if (selection?.Length > 0)
+            {
+                <ul class="flex items-center justify-center gap-2">
+                    @foreach (var item in selection.OrderBy(x => x.Level))
+                    {
+                        <li class="flex-items-center">
+                            <a class="text-sm no-underline text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                            <i class="fa-solid fa-angle-right ml-1 flex items-center justify-center text-[10px] leading-none text-[var(--color-primary)]"></i>
+                        </li>
+                    }
+                    <li class="flex items-center">
+                        <p class="text-sm text-secondary">@Model.Name</p>
+                    </li>
+                </ul>
+            }
+        </div>
     </div>
 </section>
