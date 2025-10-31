@@ -41,5 +41,26 @@ body {
     .rte {
         @apply text-[2.5rem] text-primary font-bold;
     }
+
+        .rte h2 {
+            @apply text-[2rem] text-primary font-semibold mb-4;
+        }
+
+        .rte ul {
+            @apply list-disc pl-5 mt-3;
+        }
+
+            .rte ul li {
+                @apply text-rte-xs text-body-text mb-3;
+            }
+
+                .rte ul li::marker {
+                    @apply text-secondary;
+                }
+
+        .rte p {
+            @apply mb-3 text-body-text;
+        }
+
 }
 
