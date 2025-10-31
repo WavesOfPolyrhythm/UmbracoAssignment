@@ -1,5 +1,19 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ServiceDetail>
 @{
-	Layout = null;
+	Layout = "mainLayout.cshtml";
 }
+
+<partial name="Partials/Layout/_PageHeader" model="(IPageHeader)Model" />
+
+<section>
+	<div>
+		<div>
+			Aside
+
+			Line
+
+			Content
+		</div>
+	</div>
+</section>
