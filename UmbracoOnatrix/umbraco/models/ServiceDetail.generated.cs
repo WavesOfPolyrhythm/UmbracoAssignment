@@ -20,7 +20,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 {
 	/// <summary>Service Detail</summary>
 	[PublishedModel("serviceDetail")]
-	public partial class ServiceDetail : PublishedContentModel
+	public partial class ServiceDetail : PublishedContentModel, IPageHeader
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -64,5 +64,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("serviceDetailThumbnail")]
 		public virtual global::Umbraco.Cms.Core.Models.MediaWithCrops ServiceDetailThumbnail => this.Value<global::Umbraco.Cms.Core.Models.MediaWithCrops>(_publishedValueFallback, "serviceDetailThumbnail");
+
+		///<summary>
+		/// Page Title
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "16.3.3+644334c")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("pageTitle")]
+		public virtual string PageTitle => global::Umbraco.Cms.Web.Common.PublishedModels.PageHeader.GetPageTitle(this, _publishedValueFallback);
 	}
 }
