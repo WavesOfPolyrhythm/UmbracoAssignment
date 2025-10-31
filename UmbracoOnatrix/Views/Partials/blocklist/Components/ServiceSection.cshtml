@@ -2,8 +2,13 @@
 @using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @{
     var content = (ContentModels.ServiceSection)Model.Content;
-
     var settings = Model.Settings as ContentModels.ServiceSettings;
+
+    var current = Umbraco.AssignedContentItem;
+    var siteRoot = current.Root();
+
+    var servicePage = siteRoot?.Children<ServicePage>()?.FirstOrDefault();
+    var items = servicePage?.Children<ServiceDetail>()?.OrderByDescending(x => x.CreateDate).ToList() ?? [];
 }
 
 <section class="py-16">
@@ -12,16 +17,37 @@
         <div class="text-center space-y-3">
             @if (settings!.ShowServiceLabel)
             {
-                <h2 class="font-semibold text-[#4F5955]">
+                <h2 class="uppercase tracking-wide text-sm font-semibold text-primary">
                     @content.ServiceLabel
                 </h2>
             }
-            <div class="">
+            <div class="rte">
                 @Html.Raw(content.ServiceTitle)
             </div>
         </div>
 
-        <div class="">
+        <div class="mt-5 grid grid-cols-3 gap-4">
+            @if (items.Any())
+            {
+                @foreach (var item in items)
+                {
+                    <div class="bg-neutral border-2 border-white-100 w-full min-h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+                        <a href="@item.Url()" class="block no-underline">
+                            <h4 class="p-[1.5rem] font-semibold text-primary">@item.Name</h4>
+
+                            <img src="@(item.ServiceDetailThumbnail?.Url() ?? Url.Content("~/images/shield.svg"))"
+                                 alt="@item.Name"
+                                 class="block w-full h-[220px] object-cover" />
+                        </a>
+
+                        <p class="text-sm p-[1.5rem]">@item.ServiceDetailExcerpt</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>No Services Avaliable</p>
+            }
         </div>
     </div>
 </section>
