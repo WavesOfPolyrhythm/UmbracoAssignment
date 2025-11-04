@@ -24,11 +24,11 @@ public class FormController(IUmbracoContextAccessor umbracoContextAccessor, IUmb
         var result = _formSubmissionsService.SaveCallbackRequest(model);
         if (!result)
         {
-            ModelState.AddModelError("", "There was an error saving your request. Please try again.");
+            TempData["FormError"] = "There was an error submitting the form. Please try again later.";
             return RedirectToCurrentUmbracoPage();
         }
 
-        // Work with form data here
+        TempData["FormSuccess"] = "Thank you! Your request has been received and we will get back to you soon!";
 
         return RedirectToCurrentUmbracoPage();
     }
