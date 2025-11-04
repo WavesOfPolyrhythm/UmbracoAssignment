@@ -5,19 +5,19 @@
 }
 
 <section class="relative">
-	<div class="absolute inset-0 -z-10 h-[60svh] w-full overflow-hidden">
+	<div class="hidden md:block absolute inset-0 -z-10 h-[60svh] md:h-[50svh] lg:h-[60svh] w-full overflow-hidden">
 		@if (content.HeroBgImage != null)
 		{
 			<img class="block h-full w-full object-cover" src="@content.HeroBgImage.Url()" />
 		}
 	</div>
 
-	<div class="container mx-auto px-4 relative z-10 h-[60svh] w-full flex items-center">
-		<div class="w-5/12 flex flex-col gap-8">
-			<h1 class="text-rte-xxl text-primary font-bold leading-none">
+	<div class="container mx-auto px-4 relative z-10 h-[30svh] md:h-[50svh] lg:h-[60svh] w-full flex items-center">
+		<div class="w-full md:w-7/12 lg:w-5/12 flex flex-col gap-6">
+			<h1 class="text-[2.5rem] sm:text-[3rem] md:text-[3rem] lg:text-rte-xxl text-primary font-bold leading-none text-center md:text-left">
 				@content.HeroTitle
 			</h1>
-			<div class="text-primary rounded-md px-4 py-5 w-full">
+			<div class="text-body-text text-center md:text-left px-4 py-3 w-full max-w-prose	">
 				@Html.Raw(content.HeroText)
 			</div>
 
