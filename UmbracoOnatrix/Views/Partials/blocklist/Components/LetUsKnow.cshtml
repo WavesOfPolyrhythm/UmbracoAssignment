@@ -1,0 +1,44 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.LetUsKnow)Model.Content;
+}
+
+<section class="py-16 bg-[#F7F8F7]">
+    <div class="container mx-auto px-10">
+        <div class="grid md:grid-cols-2 items-center gap-8 md:gap-12 xl:gap-0">
+            <div>
+                @if (content.LetUsKnowImage != null)
+                {
+                    <img src="@content.LetUsKnowImage.Url()" alt=""
+                         class="w-full max-w-[520px] h-auto md:max-w-[560px] lg:max-w-[500px]" />
+                }
+            </div>
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+                    @content.LetUsKnowTitle
+                </h2>
+                <ul class="space-y-6 text-sm">
+                    <li>
+                        <div class="font-semibold">Office location</div>
+                        <div>@content.LetUsKnowAddress</div>
+                    </li>
+                    <li>
+                        <div class="font-semibold">Phone number</div>
+                        <div>@content.LetUsKnowPhone</div>
+                    </li>
+                    <li>
+                        <div class="font-semibold">E-mail address</div>
+                        <div>
+                            <a href="mailto:@content.LetUsKnowEmail" class="underline hover:no-underline">
+                                @content.LetUsKnowEmail
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
