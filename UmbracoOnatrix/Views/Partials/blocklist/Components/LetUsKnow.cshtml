@@ -5,36 +5,51 @@
     var content = (ContentModels.LetUsKnow)Model.Content;
 }
 
-<section class="py-16 bg-[#F7F8F7]">
+<section class="py-16 bg-white-100">
     <div class="container mx-auto px-10">
         <div class="grid md:grid-cols-2 items-center gap-8 md:gap-12 xl:gap-0">
-            <div>
+            <div class="hidden md:block">
                 @if (content.LetUsKnowImage != null)
                 {
                     <img src="@content.LetUsKnowImage.Url()" alt=""
-                         class="w-full max-w-[520px] h-auto md:max-w-[560px] lg:max-w-[500px]" />
+                         class="w-full h-auto max-w-[320px] sm:max-w-[400px] md:max-w-[520px] lg:max-w-[500px]" />
                 }
             </div>
-            <div>
-                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">
+            <div class="flex flex-col gap-4 max-w-[50ch]">
+                <h2 class="text-1xl md:text-5xl text-center md:text-left font-bold text-primary mb-6">
                     @content.LetUsKnowTitle
                 </h2>
-                <ul class="space-y-6 text-sm">
-                    <li>
-                        <div class="font-semibold">Office location</div>
-                        <div>@content.LetUsKnowAddress</div>
-                    </li>
-                    <li>
-                        <div class="font-semibold">Phone number</div>
-                        <div>@content.LetUsKnowPhone</div>
-                    </li>
-                    <li>
-                        <div class="font-semibold">E-mail address</div>
+                <ul class="space-y-6 text-sm flex md:flex-col md:gap-4">
+                    <li class="flex gap-1">
                         <div>
-                            <a href="mailto:@content.LetUsKnowEmail" class="underline hover:no-underline">
-                                @content.LetUsKnowEmail
-                            </a>
+                            <i class="fa-solid fa-location-dot text-secondary"></i>
                         </div>
+                        <div>
+                            <div class="text-primary font-semibold">Office location</div>
+                            <div class="text-body-text">@content.LetUsKnowAddress</div>
+                        </div>
+                    </li>
+                    <li class="flex gap-1">
+                        <div>
+                            <i class="fa-solid fa-phone text-secondary"></i>
+                        </div>
+                       <div>
+                            <div class="font-semibold text-primary">Phone number</div>
+                            <div class="text-body-text">@content.LetUsKnowPhone</div>
+                       </div>
+                    </li>
+                    <li class="flex gap-1">
+                        <div>
+                            <i class="fa-solid fa-envelope text-secondary"></i>
+                        </div>
+                      <div>
+                            <div class="font-semibold text-primary">E-mail address</div>
+                            <div>
+                                <a href="mailto:@content.LetUsKnowEmail" class="text-body-text">
+                                    @content.LetUsKnowEmail
+                                </a>
+                            </div>
+                      </div>
                     </li>
                 </ul>
             </div>
