@@ -21,13 +21,13 @@
 				@Html.Raw(content.HeroText)
 			</div>
 
-			@* @if (content.HeroLink != null)
+			@if (content.HeroLink != null)
 			{
 				<a href="@content.HeroLink.Url"
-				   class="bg-[#4F5955] text-white py-3 px-10 no-underline rounded cursor-pointer">
+				   class="hidden md:inline-block bg-primary text-white py-3 px-10 no-underline self-start font-bold rounded cursor-pointer">
 					@content.HeroLink.Name
 				</a>
-			} *@
+			}
 		</div>
 	</div>
 </section>
