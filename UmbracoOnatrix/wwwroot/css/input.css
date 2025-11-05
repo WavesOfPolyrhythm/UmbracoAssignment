@@ -1,8 +1,8 @@
 ﻿@import "tailwindcss";
+@import "./forms.css";
 
 @theme {
-    --font-oswald: "Oswald", sans-serif;
-
+    --font-poppins: "Poppins", sans-serif;
     --color-neutral: #ffffff;
     --color-white: #F2EDDC;
     --color-white-100: #F7F7F7;
@@ -19,7 +19,7 @@
     --color-border-400: #C7C8C9;
     --color-heading: #2E3734;
 
-    --text-rte-xxl: 5rem;
+    --text-rte-xxl: 5rem; /* ~80px */
     --text-rte-xl: 4.375rem; /* ≈70px */
     --text-rte-lg: 2.5rem; /* ≈40px */
     --text-rte-md: 1.25rem; /* ≈20px */
@@ -28,7 +28,7 @@
 }
 
 body {
-     @apply font-oswald;
+     @apply font-poppins;
 }
 
 @layer components {
@@ -39,28 +39,61 @@ body {
     }
 
     .rte {
-        @apply text-[2.5rem] text-primary font-bold;
+        @apply leading-relaxed text-body-text;
     }
 
         .rte h2 {
-            @apply text-[2rem] text-primary font-semibold mb-4;
+            @apply text-[2rem] leading-tight text-primary font-semibold mb-4;
+        }
+
+        .rte p {
+            @apply mb-4;
+        }
+
+        .rte a {
+            @apply text-primary underline underline-offset-4 hover:opacity-80;
         }
 
         .rte ul {
-            @apply list-disc pl-5 mt-3;
+            @apply list-disc pl-5 mt-4 space-y-2;
         }
 
             .rte ul li {
-                @apply text-rte-xs text-body-text mb-3;
+                @apply text-body-text;
             }
 
                 .rte ul li::marker {
                     @apply text-secondary;
                 }
 
-        .rte p {
-            @apply mb-3 text-body-text;
-        }
+    .text-rte-xxl {
+        font-size: var(--text-rte-xxl);
+        line-height: 1.1;
+    }
 
+    .text-rte-xl {
+        font-size: var(--text-rte-xl);
+        line-height: 1.2;
+    }
+
+    .text-rte-lg {
+        font-size: var(--text-rte-lg);
+        line-height: 1.3;
+    }
+
+    .text-rte-md {
+        font-size: var(--text-rte-md);
+        line-height: 1.5;
+    }
+
+    .text-rte-sm {
+        font-size: var(--text-rte-sm);
+        line-height: 1.6;
+    }
+
+    .text-rte-xs {
+        font-size: var(--text-rte-xs);
+        line-height: 1.6;
+    }
 }
 
