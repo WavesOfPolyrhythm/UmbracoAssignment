@@ -66,6 +66,12 @@ body {
                     @apply text-secondary;
                 }
 
+        .rte img {
+            @apply block max-w-full mx-auto md:mx-0;
+        }
+
+
+
     .text-rte-xxl {
         font-size: var(--text-rte-xxl);
         line-height: 1.1;
