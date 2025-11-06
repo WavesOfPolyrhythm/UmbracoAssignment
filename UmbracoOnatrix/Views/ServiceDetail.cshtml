@@ -8,14 +8,14 @@
 
 <section class="py-16">
 	<div class="max-w-7xl mx-auto px-4">
-		<div class="flex flex-row justify-between">
-			<aside class="w-3/12 flex flex-col gap-4">
+		<div class="flex flex-col lg:flex-row gap-8">
+			<aside class="hidden lg:flex w-3/12 flex-col gap-4">
 				@Html.GetBlockListHtml(Model.ServiceDetailAside)
 			</aside>
-			<div class="w-px self-stretch bg-[var(--color-border-gray)]"></div>
+			<div class="hidden lg:block w-px self-stretch bg-border-gray"></div>
 
-			<div class="w-8/12 flex flex-col gap-2">
-				<div class="rte">
+			<div class="w-full lg:w-8/12 flex flex-col gap-2 text-center lg:text-left">
+				<div class="rte rte-service">
 					@Html.Raw(Model.ServiceDetailBody)
 				</div>
 			</div>
