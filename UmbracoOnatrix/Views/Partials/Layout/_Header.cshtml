@@ -34,25 +34,56 @@
         }
         else
         {
-            <a href="/" class="flex-shrink-0 text-[var(--color-primary)] font-bold text-xl">
+            <a href="/" class="flex-shrink-0 text-primary font-bold text-xl">
                 Onatrix
             </a>
         }
 
         @if (selection?.Length > 0)
         {
-            <ul class="flex items-center gap-16">
+            <ul class="hidden md:flex items-center gap-16">
                 @foreach (var item in selection)
                 {
                     <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
-                        <a class="font-bold text-[var(--color-primary)] hover:text-[var(--color-secondary)] transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        <a class="font-bold text-primary hover:text-secondary transition-colors" href="@item.Url(PublishedUrlProvider)">@item.Name</a>
                     </li>
                 }
             </ul>
         }
 
         <div class="flex items-center">
-            <i class="fa-solid fa-magnifying-glass text-lg text-[var(--color-primary)] cursor-pointer hover:text-[var(--color-secondary)] transition-colors"></i>
+            <i class="hidden md:inline-block fa-solid fa-magnifying-glass text-lg text-primary cursor-pointer hover:text-secondary transition-colors"></i>
+
+            <button id="navToggle" class="cursor-pointer md:hidden inline-flex items-center justify-center h-10 w-10 rounded">
+                <i class="fa-solid fa-bars text-xl text-primary hover:text-secondary"></i>
+            </button>
         </div>
     </nav>
+
+    <div id="mobileMenu"
+         class="md:hidden fixed inset-0 z-[1000] hidden">
+        <div id="navBackdrop" class="absolute inset-0 bg-black/40"></div>
+
+        <div class="absolute right-4 top-6 w-72 max-w-[85%] max-h-[80vh] bg-white-100 shadow-xl rounded-xl p-6 overflow-y-auto">
+            <div class="flex items-center justify-between mb-6">
+                <span class="text-2xl font-bold text-secondary">Menu</span>
+                <button id="navClose" class="h-10 w-10 inline-flex items-center justify-center" aria-label="Close menu">
+                    <i class="fa-solid fa-xmark text-2xl text-primary cursor-pointer"></i>
+                </button>
+            </div>
+
+            @if (selection?.Length > 0)
+            {
+                <ul class="space-y-4">
+                    @foreach (var item in selection)
+                    {
+                        <li class="@(item.IsAncestorOrSelf(Model) ? "current" : null)">
+                            <a class="block font-bold text-primary hover:text-secondary transition-colors"
+                               href="@item.Url(PublishedUrlProvider)">@item.Name</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </div>
+    </div>
 </header>
