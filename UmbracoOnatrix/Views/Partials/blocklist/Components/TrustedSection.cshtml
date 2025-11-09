@@ -5,24 +5,39 @@
 }
 
 <section class="py-16">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 relative">
 
-        <div class="text-center flex flex-col gap-4 items-center p-4">
-      <h1 class="text-[2.5rem] font-bold text-primary">@content.TrustedTitle</h1>
-      <h1 class="text-[2.5rem] font-semibold text-secondary">@content.TrustedHighligtTitle</h1>
+        @if (content.TrustedBackgroundImage != null)
+        {
+            <div class="absolute inset-0 -z-10 h-[30svh] md:h-[36svh] lg:h-[42svh] overflow-hidden pointer-events-none">
+                <img class="block w-full h-full object-cover" src="@content.TrustedBackgroundImage.Url()" alt="" />
+            </div>
+        }
 
-       <div class="hidden md:block">
-        @Html.Raw(content.TrustedText)
-      </div>
+        <div class="relative z-10 text-center flex flex-col gap-4 items-center p-6">
+            <h1 class="text-[2.5rem] font-bold text-primary">@content.TrustedTitle</h1>
+            <h1 class="text-[2.5rem] font-semibold text-secondary">@content.TrustedHighligtTitle</h1>
 
-      @if (content.TrustedLink != null)
-      {
-        <a href="@content.TrustedLink.Url"
-           class="bg-primary text-white py-3 px-10 no-underline text-center font-bold rounded cursor-pointer">
-          @content.TrustedLink.Name
-        </a>
-      }
+            <div class="hidden md:block max-w-3xl">
+                @Html.Raw(content.TrustedText)
+            </div>
+
+            @if (content.TrustedLink != null)
+            {
+                <a href="@content.TrustedLink.Url"
+                   class="inline-block bg-primary text-white py-3 px-10 no-underline text-center font-bold rounded cursor-pointer">
+                    @content.TrustedLink.Name
+                </a>
+            }
+
+            @if (content.TrustedSecondaryBackgroundImage != null)
+            {
+                <div class="hidden md:block mt-5">
+                    <img src="@content.TrustedSecondaryBackgroundImage.Url()" />
+                </div>
+            }
+        </div>
+
     </div>
-  </div>
 </section>
 
