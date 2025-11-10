@@ -1,0 +1,43 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+    var content = (ContentModels.SuccessSection)Model.Content;
+    var stats = content.SuccessStats;
+}
+
+<section class="py-16 bg-primary pt-16">
+
+    <div class="container mx-auto px-4 relative z-10">
+
+        @if (content.SuccessBackgroundImage != null)
+        {
+            <div class="absolute inset-0 -z-10 h-[30svh] md:h-[36svh] lg:h-[42svh] overflow-hidden">
+                <img class="block w-full h-full object-cover lg:object-top" src="@content.SuccessBackgroundImage.Url()" alt="" />
+            </div>
+        }
+
+        <div class="text-center text-secondary flex flex-col gap-y-2">
+            <h2 class="uppercase text-sm font-semibold text-secondary">@content.SuccessLabel</h2>
+            <h2 class="text-3xl font-bold text-white-100">@content.SuccessTitle</h2>
+        </div>
+
+        @if (stats != null && stats.Count > 0)
+        {
+            <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+                @for (var i = 0; i < stats.Count; i++)
+                {
+                    var item = stats[i];
+                    <partial name="Partials/BlockList/Components/StatsItem" model="item" />
+                }
+            </div>
+        }
+        @if (content.SuccessBottomImage != null)
+        {
+            <div class="hidden md:block mx-auto w-full max-w-[640px] lg:max-w-[1080px] md:translate-y-[6rem] md:mb-[-6rem] relative z-20">
+                <img class="block w-full h-auto" src="@content.SuccessBottomImage.Url()" />
+            </div>
+        }
+    </div>
+</section>
+
+
