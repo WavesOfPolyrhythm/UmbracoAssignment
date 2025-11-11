@@ -1,0 +1,23 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = (ContentModels.IconSection)Model.Content;
+    var iconList = content.IconList;
+}
+
+
+<section class="hidden md:block pb-16 pt-[11rem]">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-evenly items-center gap-8">
+           @if(iconList != null)
+            {
+                @for (var i = 0; i < iconList.Count; i++)
+                {
+                    var icon = iconList[i];
+                    <partial name="Partials/BlockList/Components/IconItem" model="icon" />
+                }
+            }
+        </div>
+    </div>
+</section>
