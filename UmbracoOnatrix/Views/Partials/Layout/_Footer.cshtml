@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
+@{
+    var rootContent = Umbraco.ContentAtRoot();
+    var siteSettings = rootContent.OfType<SiteSettings>().FirstOrDefault();
+
+    var copyrightText = siteSettings?.CopyrightText?.ToString()?? "© Onatrix. All Rights Reserved. Credits to Themesflat";
+}
+<footer class="bg-dark py-4">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="rte">
+            @Html.Raw(copyrightText)
+        </div>
+    </div>
+</footer>
+
+
+
+
