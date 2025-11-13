@@ -137,7 +137,8 @@ body {
 }
 
 /* 
-    
+    Could not make styling below work for some reason
+
     .custom-pagination {
         @apply hidden md:flex md:justify-center md:gap-4 md:py-2 md:mt-6;
     }
