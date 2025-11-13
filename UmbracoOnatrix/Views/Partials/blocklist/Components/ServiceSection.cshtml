@@ -26,28 +26,40 @@
             </div>
         </div>
 
-        <div class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        @* <div class="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> *@
             @if (items.Any())
             {
-                @foreach (var item in items)
-                {
-                    <div class="bg-neutral border-2 border-white-100 w-full min-h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
-                        <a href="@item.Url()" class="block no-underline">
-                            <h4 class="p-[1.5rem] font-semibold text-primary">@item.Name</h4>
+                <div class="swiper serviceSwiper !-mx-4">
+                    <div class="swiper-wrapper">
+                        @foreach (var item in items)
+                        {
+                            <div class="swiper-slide bg-neutral border-2 border-white-100 w-full min-h-[350px] overflow-hidden transition-all hover:border-secondary hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+                                <a href="@item.Url()" class="block no-underline">
+                                    <h4 class="p-[1.5rem] font-semibold text-primary">@item.Name</h4>
 
-                            <img src="@(item.ServiceDetailThumbnail?.Url() ?? Url.Content("~/images/shield.svg"))"
-                                 alt="@item.Name"
-                                 class="block w-full h-[220px] object-cover" />
-                        </a>
+                                    <img src="@(item.ServiceDetailThumbnail?.Url() ?? Url.Content("~/images/shield.svg"))"
+                                         alt="@item.Name"
+                                         class="block w-full h-[220px] object-cover" />
+                                </a>
 
-                        <p class="text-sm p-[1.5rem]">@item.ServiceDetailExcerpt</p>
+                                <p class="text-sm p-[1.5rem]">@item.ServiceDetailExcerpt</p>
+                            </div>
+                        }
                     </div>
-                }
+
+                    <div class="custom-pagination">
+                        <div class="custom-prev">Prev</div>
+                        <div class="swiper-pagination"></div>
+                        <div class="custom-next">Next</div>
+                    </div>
+
+                </div>
+
             }
             else
             {
                 <p>No Services Avaliable</p>
             }
-        </div>
+        @* </div> *@
     </div>
 </section>

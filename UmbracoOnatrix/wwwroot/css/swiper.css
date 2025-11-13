@@ -1,0 +1,27 @@
+﻿/*
+    Had problems implementing Tailwind CSS in this file. Added it to the input.css instead.
+    .custom-pagination {
+    @apply hidden md:flex md:justify-center md:gap-4 md:py-2 md:mt-6;
+}
+
+.custom-prev,
+.custom-next {
+    @apply text-lg font-semibold text-gray-400 cursor-pointer;
+}
+
+.swiper-pagination {
+    @apply flex justify-center items-center gap-2 relative !w-auto !bottom-0;
+}
+
+.swiper-pagination-bullet {
+    @apply text-lg font-semibold flex justify-center items-center gap-2 bg-neutral rounded-full p-6;
+}
+
+    .swiper-pagination-bullet:hover {
+        @apply outline-1 outline-border-400 opacity-100;
+    }
+
+.swiper-pagination-bullet-active {
+    @apply bg-neutral outline-1 outline-border-400 text-primary;
+}
+*/
