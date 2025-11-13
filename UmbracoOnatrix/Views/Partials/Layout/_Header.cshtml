@@ -26,7 +26,7 @@
 <header class="relative shadow-sm z-[999]">
     <nav class="max-w-7xl mx-auto flex items-center justify-between p-4">
 
-        @if (logo != null)
+        @if (logo != null && !string.IsNullOrWhiteSpace(logo.Url()))
         {
             <a href="/" class="flex-shrink-0">
                 <img src="@logo.Url()" alt="Onatrix" class="h-10 w-auto" />
@@ -34,10 +34,11 @@
         }
         else
         {
-            <a href="/" class="flex-shrink-0 text-primary font-bold text-xl">
-                Onatrix
+            <a href="/" class="flex-shrink-0">
+                <img src="@Url.Content("~/images/Brand.svg")" alt="Onatrix" class="h-10 w-auto" />
             </a>
         }
+
 
         @if (selection?.Length > 0)
         {

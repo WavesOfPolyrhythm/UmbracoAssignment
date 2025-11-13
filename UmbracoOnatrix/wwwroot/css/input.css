@@ -1,5 +1,8 @@
 ﻿@import "tailwindcss";
 @import "./forms.css";
+@import "./swiper.css" 
+
+@source "./**/*.cshtml" "./Views/**/*.cshtml" "./wwwroot/**/*.js" "./**/*.css";
 
 @theme {
     --font-poppins: "Poppins", sans-serif;
@@ -29,6 +32,11 @@
 
 body {
      @apply font-poppins;
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+    background: none !important;
 }
 
 @layer components {
@@ -105,5 +113,65 @@ body {
         font-size: var(--text-rte-xs);
         line-height: 1.6;
     }
+
+    .custom-pagination {
+        @apply hidden md:flex md:justify-center md:items-center md:gap-8 md:py-6 md:mt-8 relative;
+    }
+
+    .custom-prev,
+    .custom-next {
+        @apply text-lg font-semibold flex items-center text-gray-400 cursor-pointer transition-colors;
+    }
+
+        .custom-prev:hover,
+        .custom-next:hover {
+            @apply text-primary;
+        }
+
+    .swiper-pagination {
+        @apply flex justify-center items-center gap-3 w-auto;
+    }
+
+    .swiper-button-disabled {
+    @apply opacity-40 cursor-default;
+}
+
+/* 
+    
+    .custom-pagination {
+        @apply hidden md:flex md:justify-center md:gap-4 md:py-2 md:mt-6;
+    }
+
+
+    .custom-prev,
+    .custom-next {
+        @apply text-lg font-semibold flex items-center text-gray-400 cursor-pointer;
+    }
+
+  
+
+    .swiper-button-disabled {
+        @apply text-border-400 cursor-default;
+    }
+
+   
+  .swiper-pagination {
+        @apply flex justify-center items-center gap-2 relative !w-auto !bottom-0;
+    }
+
+  
+    .swiper-pagination-bullet {
+        @apply text-lg font-semibold flex justify-center items-center gap-2 bg-neutral rounded-full p-6;
+    }
+    
+        .swiper-pagination-bullet:hover {
+            @apply outline-1 outline-border-400 opacity-100;
+        }
+
+    .swiper-pagination-bullet-active {
+        @apply bg-neutral outline-1 outline-border-400 text-primary;
+    }*/
+
+    
 }
 
