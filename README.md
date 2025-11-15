@@ -1,6 +1,6 @@
 UMBRACO ASSIGNMENT
-The goal of this project was to build a dynamic CMS driven website using Umbraco, including Block List Elements, Element Types, Document Types, reusable components and items and a fully structured content model.
-After studying with help from cousre materials from 'EC Utbildning' I was able to independetly structure the page bit by bit. 
+The goal of this project was to build a dynamic CMS driven website using Umbraco, including Block List Elements, Element Types, Document Types, reusable components, items and a fully structured content model.
+After studying with help from course materials from 'EC Utbildning', I was able to independetly structure the page bit by bit. 
 
 My focus areas:
 -Understanding and applying Umbraco structure
